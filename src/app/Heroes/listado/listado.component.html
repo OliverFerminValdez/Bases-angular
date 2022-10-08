@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-header">
+        <h4>Listado de heroes</h4>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr> 
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Accion</th>
+                  </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let heroe of heroes; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{heroe}}</td>
+                    <td><button type="button" class="btn btn-danger" (click)="eliminarHeroe(i)">Borrar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer">
+        <div *ngIf="heroes.length > 0; else noBorrado">
+            <h3>Quedan {{heroes.length}} heroes</h3>
+        </div>
+        <ng-template #noBorrado>
+            <h3>No hay heroes que borrar</h3>
+        </ng-template>
+    </div>
+</div>
+
